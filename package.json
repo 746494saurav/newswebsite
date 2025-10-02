@@ -1,0 +1,27 @@
+{
+  "name": "newswebsite",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "cwd": "^0.10.0",
+    "dot": "^1.1.3",
+    "dotenv": "^17.2.2",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-ejs-layouts": "^2.5.1",
+    "mongoose": "^8.18.2",
+    "moon": "^1.0.0-beta.7",
+    "multer": "^2.0.2"
+  }
+}

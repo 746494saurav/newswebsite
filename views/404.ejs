@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>
+        <%= title %>
+    </title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <!-- Custom stlylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    } 
+ body {
+      
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #f3f4f6;
+      color: #333;
+      text-align: center;
+    } 
+    .containers {
+        justify-content: center;
+        max-width: 600px;
+        padding: 60px;
+    
+    }
+
+    .error {
+        font-size: 8rem;
+        color: #ff4b5c;
+    }
+
+    .error1 {
+        font-size: 2rem;
+        margin: 10px 0;
+    }
+
+    .error2 {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 20px;
+    }
+
+    .links {
+        text-decoration: none;
+        background: #ff4b5c;
+        color: #fff;
+        padding: 12px 25px;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: background 0.3s ease;
+    }
+
+    .links:hover {
+        background: #d63a49;
+    }
+</style>
+
+<body>
+    <!-- HEADER -->
+    <div id="header">
+        <!-- container -->
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- LOGO -->
+                <div class="col-md-3">
+                    <a href="/" id="logo"><img src="images/news.jpg" alt="Logo" /></a>
+                </div>
+                <!-- /LOGO -->
+            </div>
+        </div>
+    </div>
+    <!-- /HEADER -->
+    <!-- Menu Bar -->
+    <div id="menu-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class='menu'>
+                        <li><a href='/'>Home</a></li>
+                        <li><a href='/author'>Business</a></li>
+                        <li><a href='/author'>Entertainment</a></li>
+                        <li><a href='/category'>Sports</a></li>
+                        <li><a href='/category'>Politics</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="containers">
+        <h1 class="error">404</h1>
+        <h2 class="errror1">Oops! Page Not Found</h2>
+        <p class="error2">Sorry, the page you are looking for doesn’t exist or has been moved.</p>
+        <a href="/" class="links">Go Back Home</a>
+    </div>
+</body>
+
+</html>

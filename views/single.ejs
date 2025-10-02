@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>
+        <%= title %>
+    </title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <!-- Custom stlylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <div id="header">
+        <!-- container -->
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- LOGO -->
+                <div class="col-md-3">
+                    <a href="/" id="logo"><img src="images/news.jpg" alt="Logo" /></a>
+                </div>
+                <!-- /LOGO -->
+            </div>
+        </div>
+    </div>
+    <!-- /HEADER -->
+    <!-- Menu Bar -->
+    <div id="menu-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class='menu'>
+                        <li><a href='/'>Home</a></li>
+                        <li><a href='/author'>Business</a></li>
+                        <li><a href='/author'>Entertainment</a></li>
+                        <li><a href='/category'>Sports</a></li>
+                        <li><a href='/category'>Politics</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Menu Bar -->
+
+    <div id="main-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- post-container -->
+                    <div class="post-container">
+                        <div class="post-content single-post">
+                            <h3><%- article.title %></h3>
+
+                            <div class="post-information">
+                                <span>
+                                    <i class="fa fa-tags" aria-hidden="true"></i>
+                                    <%= article.category %>
+                                </span>
+                                <span>
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <a href='/author/<%= article.author || "admin" %>'>
+                                        <%= article.author || "Admin" %>
+                                    </a>
+                                </span>
+                                <span>
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    <%= new Date(article.Date).toLocaleDateString("en-GB", { day:"2-digit",
+                                        month:"short", year:"numeric" }) %>
+                                </span>
+                            </div>
+
+                            <img class="single-feature-image" src="<%= article.image %>" alt="<%= article.title %>" />
+
+                            <p class="description">
+                                <%= article.content %>
+                            </p>
+                        </div>
+
+                    </div>
+                    <!-- /post-container -->
+
+                    <!-- Comments Section -->
+                    <div class="comments-section mt-5">
+                        <h3>Comments</h3>
+
+                        <!-- Comment Form -->
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <form action="/comment" method="POST">
+                                    <input type="hidden" name="articleId" value="<%= article._id %>" />
+                                    <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <input type="text" class="form-control" name="name" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" class="form-control" name="email" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Comment</label>
+                                        <textarea class="form-control" name="comment" rows="3" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit Comment</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Display Comments -->
+                        <div class="comments-list">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted">User Name</h6>
+                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
+                                        est laboriosam rerum saepe odit exercitationem earum sequi in ipsum culpa!</p>
+                                    <small class="text-muted">Posted on 10-10-2020</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- sidebar -->
+                <div id="sidebar" class="col-md-4">
+                    <!-- search box -->
+                    <div class="search-box-container">
+                        <h4>Search</h4>
+                        <form class="search-post" action="/search" method="GET">
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-control" placeholder="Search .....">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-danger">Search</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /search box -->
+                    <!-- recent posts box -->
+                    <div class="recent-post-container">
+                        <h4>Recent Posts</h4>
+                        <div class="recent-post">
+                            <a class="post-img" href="">
+                                <img src="images/post-format.jpg" alt="" />
+                            </a>
+                            <div class="post-content">
+                                <h5><a href="/single">Lorem ipsum dolor sit amet</a></h5>
+                                <span>
+                                    <i class="fa fa-tags" aria-hidden="true"></i>
+                                    <a href='category.html'>Html</a>
+                                </span>
+                                <span>
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    01 Nov, 2025
+                                </span>
+                                <a class="read-more" href="">read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /recent posts box -->
+                </div>
+                <!-- /sidebar -->
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <span>© Copyright 2025 News | Powered by Saurav kumar</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

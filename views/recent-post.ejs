@@ -1,0 +1,21 @@
+<div class="recent-post-container">
+            <h4>Recent Posts</h4>
+            <% articles.forEach(article=> { %>
+            <div class="recent-post">
+                <img src="<%= article.image %>"  class="post-img"  alt="<%= article.title %>" />
+              <div class="post-content">
+                <h5><%= article.title %></h5>
+                <span>
+                  <i class="fa fa-tags" aria-hidden="true"></i>
+                  <%= article.category %>
+                </span>
+                <span>
+                  <i class="fa fa-calendar" aria-hidden="true"></i>
+                  <%= new Date(article.Date).toLocaleDateString("en-GB", { day:"2-digit", month:"short",
+                    year:"numeric" }) %>
+                </span>
+                 <a class='read-more pull-right ' href='<%= article._id %>'>read more</a>
+              </div>
+            </div>
+             <% }) %>
+          </div>

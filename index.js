@@ -47,7 +47,6 @@ app.use("/admin/update-category", updatecategory);
 app.use("/admin/update-user", updateuser);
 app.use("/admin/user", userRoute);
 
-
 app.use("", (req, res) => {
     res.render("404",{
         title: "News"

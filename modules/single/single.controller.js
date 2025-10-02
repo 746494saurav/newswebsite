@@ -11,7 +11,7 @@ export const singlePage = async (req, res) => {
     }
 
     res.render("single", {
-      title: article.title,
+      title: "News",
       article
     });
   } catch (error) {
@@ -20,10 +20,23 @@ export const singlePage = async (req, res) => {
   }
 };
 
+export const relatednews =async(req,res)=>{
+  try {
+  
+    const relatedArticles = await Article.find({category: req.params.category });
+    res.render("related-post", {
+      title: "Related News",
+      relatedArticles
+    });
+  } catch (error) {
+    console.error("❌ Error loading related news:", error.message);
+    res.status(500).send("Server Error");
+  }
+}
+
 export const addComment = async (req, res) => {
   try {
     const comment = new Comment(req.body);
-    console.log(comment);
     await comment.save();
     res.redirect(`/`);
   } catch (error) {

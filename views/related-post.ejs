@@ -1,0 +1,79 @@
+
+  <style>
+    .post-card {
+      border-radius: 12px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+    .post-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+    .post-imgs {
+      height: 180px;
+      object-fit: cover;
+    }
+  </style>
+
+<div class="bg-light">
+
+<div class="container py-4">
+  <h2 class="mb-4">Related News</h2>
+
+  <!-- Posts Grid -->
+  <div class="row g-3">
+    <!-- Post Item -->    
+    <div class="col-md-4 col-sm-6">
+      <div class="card post-card h-100">
+        <img src="/images/post-format.jpg" class="card-img-top post-img" alt="Post">
+        <div class="card-body">
+          <h5 class="card-title"><%- article.title %></h5>
+          <p class="card-text text-muted small">Short description about the post goes here...</p>
+          <a href="#" class="btn btn-sm btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <div class="card post-card h-100">
+        <img src="/images/post-format.jpg" class="card-img-top post-img" alt="Post">
+        <div class="card-body">
+          <h5 class="card-title">Post Title One</h5>
+          <p class="card-text text-muted small">Short description about the post goes here...</p>
+          <a href="#" class="btn btn-sm btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+   
+
+    <!-- Repeat for more posts -->
+    <div class="col-md-4 col-sm-6">
+      <div class="card post-card h-100">
+        <img src="/images/post-format.jpg" class="card-img-top post-img" alt="Post">
+        <div class="card-body">
+          <h5 class="card-title">Post Title Two</h5>
+          <p class="card-text text-muted small">Another short description about the post...</p>
+          <a href="#" class="btn btn-sm btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Pagination -->
+  <nav class="mt-4">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled">
+        <a class="page-link">Previous</a>
+      </li>
+      <li class="page-item active"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+
+</div>
+
+</div>

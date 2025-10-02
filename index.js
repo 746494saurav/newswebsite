@@ -19,6 +19,8 @@ import updateArticle from "./modules/update-article/update-article.route.js";
 import updatecategory from "./modules/update-category/update-category.route.js";
 import updateuser from "./modules/update-user/update-user.route.js";
 import userRoute from "./modules/user/user.route.js";
+import bussinessRoute from "./modules/bussiness/bussiness.route.js";
+import intertainmentRoute from "./modules/intertainment/intertainment.route.js";
 
 dotenv.config();
 connectDB();
@@ -46,6 +48,8 @@ app.use("/admin/update-article", updateArticle);
 app.use("/admin/update-category", updatecategory);
 app.use("/admin/update-user", updateuser);
 app.use("/admin/user", userRoute);
+app.use("/bussiness-user", bussinessRoute);
+app.use("/intertainment", intertainmentRoute);
 
 app.use("", (req, res) => {
     res.render("404",{

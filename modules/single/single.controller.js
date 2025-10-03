@@ -23,7 +23,8 @@ export const singlePage = async (req, res) => {
 export const relatednews =async(req,res)=>{
   try {
   
-    const relatedArticles = await Article.find({category: req.params.category });
+    const relatedArticles = await Article.find({id: req.params });
+    console.log(relatedArticles);
     res.render("related-post", {
       title: "Related News",
       relatedArticles

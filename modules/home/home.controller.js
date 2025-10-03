@@ -30,18 +30,18 @@ export const homePage = async (req, res) => {
 
 export const politics = async (req, res) => {
   try {
-    // Pagination (optional)
     const page = parseInt(req.query.page) || 1; 
     const limit = 10; 
     const skip = (page - 1) * limit;
 
     // Fetch posts with pagination
     const articles = await Article.find({ category: "Politics" })
-      .sort({ createdAt: -1 }) // latest first
+      .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limit);
 
-    const totalArticles = await Article.countDocuments();
+    // Count only Politics articles
+    const totalArticles = await Article.countDocuments({ category: "Politics" });
     const totalPages = Math.ceil(totalArticles / limit);
 
     res.render("politics", {
@@ -51,25 +51,26 @@ export const politics = async (req, res) => {
       totalPages
     });
   } catch (error) {
-    console.error("❌ Error loading homepage:", error.message);
+    console.error("❌ Error loading politics page:", error.message);
     res.status(500).send("Server Error");
   }
 };
 
+
 export const sports = async (req, res) => {
   try {
-    // Pagination (optional)
-    const page = parseInt(req.query.page) || 1; 
-    const limit = 10; 
+    const page = parseInt(req.query.page) || 1;
+    const limit = 10;
     const skip = (page - 1) * limit;
 
-    // Fetch posts with pagination
+    // Fetch sports articles
     const articles = await Article.find({ category: "Sports" })
-      .sort({ createdAt: -1 }) // latest first
+      .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limit);
 
-    const totalArticles = await Article.countDocuments();
+    // Count only sports
+    const totalArticles = await Article.countDocuments({ category: "Sports" });
     const totalPages = Math.ceil(totalArticles / limit);
 
     res.render("sports", {
@@ -79,10 +80,11 @@ export const sports = async (req, res) => {
       totalPages
     });
   } catch (error) {
-    console.error("❌ Error loading homepage:", error.message);
+    console.error("❌ Error loading sports page:", error.message);
     res.status(500).send("Server Error");
   }
 };
+
 
 
 
